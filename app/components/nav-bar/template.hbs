@@ -1,1 +1,29 @@
-{{yield}}
+<navbar>
+  <div>
+    {{#if auth.isAuthenticated}}
+      <button {{action 'routeSignOut'}}>LogOut</button>
+    {{else}}
+      <button {{action 'open'}}>Register/LogIn</button>
+    {{/if}}
+  </div>
+</navbar>
+
+{{#if isShowingModal}}
+  {{#modal-dialog close="close" clickOutsideToClose=true}}
+    <div class="auth-modal">
+      <h3>LogIn</h3>
+      <form>
+        {{email-input email=credentials.email}}
+        {{password-input password=credentials.password}}
+        <button type="submit" {{action 'routeSignIn'}}>LogIn</button>
+      </form>
+      <h3>Register</h3>
+      <form>
+        {{email-input email=credentials.email}}
+        {{password-input password=credentials.password}}
+        {{password-input-confirmation password=credentials.passwordConfirmation}}
+        <button type="submit" {{action 'routeSignUp'}}>Register</button>
+      </form>
+    </div>
+  {{/modal-dialog}}
+{{/if}}
