@@ -13,12 +13,13 @@
     <div class="auth-modal">
       <h3>LogIn</h3>
       <form>
-        {{email-input email=credentials.email}}
+        {{username-input username=credentials.username}}
         {{password-input password=credentials.password}}
         <button type="submit" {{action 'routeSignIn'}}>LogIn</button>
       </form>
       <h3>Register</h3>
       <form>
+        {{username-input username=registerCredentials.username}}
         {{email-input email=registerCredentials.email}}
         {{password-input password=registerCredentials.password}}
         {{password-input-confirmation password=registerCredentials.passwordConfirmation}}

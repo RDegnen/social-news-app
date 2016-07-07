@@ -10,6 +10,7 @@ export default Ember.Service.extend({
     return this.get('ajax').post('/sign-up', {
       data: {
         credentials: {
+          username: credentials.username,
           email: credentials.email,
           password: credentials.password,
           password_confirmation: credentials.passwordConfirmation,
@@ -22,13 +23,14 @@ export default Ember.Service.extend({
     return this.get('ajax').post('/sign-in', {
       data: {
         credentials: {
-          email: credentials.email,
+          username: credentials.username,
           password: credentials.password,
         },
       },
     })
     .then((result) => {
       this.get('credentials').set('id', result.user.id);
+      this.get('credentials').set('username', result.user.username);
       this.get('credentials').set('email', result.user.email);
       this.get('credentials').set('token', result.user.token);
     });
