@@ -19,9 +19,9 @@
       </form>
       <h3>Register</h3>
       <form>
-        {{email-input email=credentials.email}}
-        {{password-input password=credentials.password}}
-        {{password-input-confirmation password=credentials.passwordConfirmation}}
+        {{email-input email=registerCredentials.email}}
+        {{password-input password=registerCredentials.password}}
+        {{password-input-confirmation password=registerCredentials.passwordConfirmation}}
         <button type="submit" {{action 'routeSignUp'}}>Register</button>
       </form>
     </div>

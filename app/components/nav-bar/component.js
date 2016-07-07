@@ -2,11 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   credentials: {},
+  registerCredentials: {},
   auth: Ember.inject.service(),
 
   actions: {
     routeSignUp () {
-      this.sendAction('routeSignUp', this.get('credentials'));
+      this.sendAction('routeSignUp', this.get('registerCredentials'));
     },
     routeSignIn () {
       this.sendAction('routeSignIn', this.get('credentials'));
