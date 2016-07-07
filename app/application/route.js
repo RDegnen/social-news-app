@@ -28,7 +28,8 @@ export default Ember.Route.extend({
       .then(() => {
         console.log('You have been signed out.');
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error);
         console.log('There was a problem. Are you sure you\'re signed-in?');
       });
       this.store.unloadAll();
