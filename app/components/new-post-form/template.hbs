@@ -1,0 +1,12 @@
+<div id="mde">
+  <h4>Title</h4>
+  {{input value=postTitle}}
+  <h4>Content</h4>
+  {{textarea
+    type=text
+    value=postContent}}
+</div>
+<div>
+  <h4>Post Preview</h4>
+  {{markdown-to-html postContent}}
+</div>
