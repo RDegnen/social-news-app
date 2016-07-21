@@ -1,0 +1,8 @@
+<h3>{{title}}</h3>
+<p>
+  {{markdown-to-html content}}
+</p>
+{{#if isOwner}}
+  <button>Edit</button>
+  <button {{action 'delete'}}>Delete</button>
+{{/if}}
