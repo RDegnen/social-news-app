@@ -6,22 +6,22 @@ export default Ember.Component.extend({
   auth: Ember.inject.service(),
 
   actions: {
-    routeSignUp () {
+    routeSignUp() {
       this.sendAction('routeSignUp', this.get('registerCredentials'));
       this.set('isShowingModal', false);
     },
-    routeSignIn () {
+    routeSignIn() {
       this.sendAction('routeSignIn', this.get('credentials'));
       this.set('isShowingModal', false);
     },
-    routeSignOut () {
+    routeSignOut() {
       this.sendAction('routeSignOut');
     },
-    open (){
+    open() {
       console.log('open modal');
       this.set('isShowingModal', true);
     },
-    close (){
+    close() {
       console.log('close modal');
       this.set('isShowingModal', false);
     },

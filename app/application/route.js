@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   auth: Ember.inject.service(),
 
   actions: {
-    signUp (credentials) {
+    signUp(credentials) {
       console.log('Route: Sign-up', credentials);
       this.get('auth').signUp(credentials)
       .then(() => this.get('auth').signIn(credentials))
@@ -15,7 +15,7 @@ export default Ember.Route.extend({
         console.log('There was a problem. Please try again.');
       });
     },
-    signIn (credentials) {
+    signIn(credentials) {
       console.log('Sign-in', credentials);
       return this.get('auth').signIn(credentials)
       .then(() => console.log('Thanks for signing in!'))
@@ -23,7 +23,7 @@ export default Ember.Route.extend({
         console.log('There was a problem. Please try again.');
       });
     },
-    signOut () {
+    signOut() {
       this.get('auth').signOut()
       .then(() => {
         console.log('You have been signed out.');

@@ -1,12 +1,13 @@
 <div id="mde">
   <h4>Title</h4>
-  {{input value=postTitle}}
+  {{input value=post.title}}
   <h4>Content</h4>
   {{textarea
     type=text
-    value=postContent}}
+    value=post.content}}
 </div>
 <div>
   <h4>Post Preview</h4>
-  {{markdown-to-html postContent}}
+  {{markdown-to-html post.content}}
+  <button type="submit" {{action 'newPost'}}>Submit</button>
 </div>
