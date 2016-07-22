@@ -5,12 +5,13 @@ export default Ember.Route.extend({
 
   actions: {
     createPost(post) {
-      this.get('auth').createPost(post)
-      .then(() => {
-        this.transitionTo(`posts`);
-      })
-      .then(() => console.log('Post crated!'))
-      .catch(console.error);
+      this.store.createRecord('post', post)
+        .save()
+        .then((post) => {
+          console.log('Post Created!');
+          this.transitionTo(`posts/${post.id}`);
+        })
+        .catch(console.log);
     }
   },
 });

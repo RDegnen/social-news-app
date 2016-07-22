@@ -10,11 +10,11 @@ export default Model.extend({
 
   title: DS.attr('string'),
   content: DS.attr('string'),
-  user_id: DS.attr('number'),
-  created_at: DS.attr('date'),
+  owner: DS.attr('number'),
+  created: DS.attr('date'),
 
-  timeSinceCreated: Ember.computed('created_at', function(){
-    let created = this.get('created_at');
+  timeSinceCreated: Ember.computed('created', function(){
+    let created = this.get('created');
     let seconds = Math.floor((new Date() - created) / 1000);
 
     let interval = Math.floor(seconds / 31536000);

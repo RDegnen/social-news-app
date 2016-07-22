@@ -52,12 +52,12 @@ export default Ember.Service.extend({
     .finally(() => this.get('credentials').reset());
   },
 
-  createPost(post) {
-    return this.get('ajax').post(`/posts`, {
-      data: {
-        title: post.title,
-        content: post.content,
-      }
-    });
-  },
+  // createPost(post) {
+  //   return this.get('ajax').post(`/posts`, {
+  //     data: {
+  //       title: post.title,
+  //       content: post.content,
+  //     }
+  //   });
+  // },
 });
