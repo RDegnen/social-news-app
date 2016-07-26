@@ -15,6 +15,7 @@ export default Model.extend({
 
   timeSinceCreated: Ember.computed('created', function(){
     let created = this.get('created');
+
     let seconds = Math.floor((new Date() - created) / 1000);
 
     let interval = Math.floor(seconds / 31536000);

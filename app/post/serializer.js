@@ -1,12 +1,13 @@
 import JSONAPISerializer from 'ember-data/serializers/json-api';
 
 export default JSONAPISerializer.extend({
-  serialize(snapshot, options) {
+  serialize() {
     let json = this._super(...arguments);
 
-    // delete json.data.attributes.user-id;
-    // delete json.data.attributes.created-at;
-    console.log(json);
+    return {
+      content: json.data.attributes.content,
+      title: json.data.attributes.title,
+    };
   },
 
   normalizeFindAllResponse(store, type, payload) {
