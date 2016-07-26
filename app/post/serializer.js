@@ -33,5 +33,28 @@ export default JSONAPISerializer.extend({
       delete payload.data[i].updated_at;
     }
     return payload;
-  }
+  },
+
+  normalizeFindRecordResponse(store, type, payload) {
+    payload.data = payload.post;
+    payload.data.attributes = {};
+    let attrs = payload.data.attributes;
+
+    payload.data.type = type.modelName;
+
+    attrs.title = payload.data.title;
+    attrs.content = payload.data.content;
+    attrs.owner = payload.data.user_id;
+    attrs.created = payload.data.created_at;
+    attrs.updated = payload.data.updated_at;
+
+    delete payload.data.title;
+    delete payload.data.content;
+    delete payload.data.user_id;
+    delete payload.data.created_at;
+    delete payload.data.updated_at;
+    delete payload.post;
+
+    return payload;
+  },
 });
