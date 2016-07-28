@@ -10,7 +10,7 @@ export default Ember.Route.extend({
       newPost.save()
         .then((post) => {
           console.log('Post Created!');
-          this.transitionTo(`posts/${post.id}`);
+          this.transitionTo('post', post.id);
         });
     }
   },
