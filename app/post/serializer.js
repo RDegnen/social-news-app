@@ -16,15 +16,24 @@ export default JSONAPISerializer.extend({
 
     for (let i = 0; i < payload.data.length; i++) {
       payload.data[i].attributes = {};
+      payload.data[i].relationships = {};
+
       let attrs = payload.data[i].attributes;
+      let rels = payload.data[i].relationships;
+      
+      rels.user = {};
+      rels.user.data = {};
+      let userData = rels.user.data;
 
       payload.data[i].type = type.modelName;
 
       attrs.title = payload.data[i].title;
       attrs.content = payload.data[i].content;
-      attrs.owner = payload.data[i].user_id;
       attrs.created = payload.data[i].created_at;
       attrs.updated = payload.data[i].updated_at;
+
+      userData.id = payload.data[i].user_id;
+      userData.type = "user";
 
       delete payload.data[i].title;
       delete payload.data[i].content;
@@ -32,6 +41,7 @@ export default JSONAPISerializer.extend({
       delete payload.data[i].created_at;
       delete payload.data[i].updated_at;
     }
+
     return payload;
   },
 
