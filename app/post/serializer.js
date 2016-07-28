@@ -10,7 +10,7 @@ export default JSONAPISerializer.extend({
     };
   },
 
-  normalizeFindAllResponse(store, type, payload) {
+  findAll(store, type, payload) {
     payload.data = payload.posts;
     delete payload.posts;
 
@@ -20,7 +20,7 @@ export default JSONAPISerializer.extend({
 
       let attrs = payload.data[i].attributes;
       let rels = payload.data[i].relationships;
-      
+
       rels.user = {};
       rels.user.data = {};
       let userData = rels.user.data;
@@ -45,18 +45,31 @@ export default JSONAPISerializer.extend({
     return payload;
   },
 
-  normalizeFindRecordResponse(store, type, payload) {
+  normalizeResponse(store, type, payload, id, requestType) {
+    if (requestType === 'findAll') {
+      return this.findAll(store, type, payload);
+    }
     payload.data = payload.post;
     payload.data.attributes = {};
+    payload.data.relationships = {};
+
     let attrs = payload.data.attributes;
+    let rels = payload.data.relationships;
+
+    rels.user = {};
+    rels.user.data = {};
+    let userData = rels.user.data;
 
     payload.data.type = type.modelName;
 
     attrs.title = payload.data.title;
     attrs.content = payload.data.content;
-    attrs.owner = payload.data.user_id;
+    // attrs.owner = payload.data.user_id;
     attrs.created = payload.data.created_at;
     attrs.updated = payload.data.updated_at;
+
+    userData.id = payload.data.user_id;
+    userData.type = "user";
 
     delete payload.data.title;
     delete payload.data.content;
@@ -66,5 +79,5 @@ export default JSONAPISerializer.extend({
     delete payload.post;
 
     return payload;
-  },
+  }
 });

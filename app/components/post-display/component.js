@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   credentials: storageFor('auth'),
 
   isOwner: Ember.computed(function() {
-    return this.get('credentials').get('id') === this.ownerId;
+    return this.get('credentials').get('id') === parseInt(this.owner.content.id);
   }),
 
   actions: {
