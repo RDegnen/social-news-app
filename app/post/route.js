@@ -12,6 +12,10 @@ export default Ember.Route.extend({
       post.destroyRecord()
         .then(() => this.transitionTo('posts'))
         .catch(console.log);
-    }
+    },
+
+    updatePost(post) {
+      post.save();
+    },
   },
 });
