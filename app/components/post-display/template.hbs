@@ -1,0 +1,17 @@
+<h3>{{title}}</h3>
+{{#unless isEditing}}
+  <p>
+    {{markdown-to-html content}}
+  </p>
+  {{#if isOwner}}
+    <button {{action 'openEdit'}}>Edit</button>
+    <button {{action 'delete'}}>Delete</button>
+  {{/if}}
+{{/unless}}
+{{#if isEditing}}
+{{textarea
+  type=text
+  value=content}}
+  <button {{action 'update'}}>Save</button>
+  <button {{action 'closeEdit'}}>Cancel</button>
+{{/if}}

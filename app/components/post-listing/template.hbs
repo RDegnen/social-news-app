@@ -1,0 +1,7 @@
+{{#link-to 'post' post.id}}
+  <h4>{{post.title}}</h4>
+{{/link-to}}
+<p>
+  By {{post.user.username}} {{post.timeSinceCreated}} ago |
+  {{#link-to 'post' post.id}}Comments{{/link-to}}
+</p>

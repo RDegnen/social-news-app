@@ -6,7 +6,7 @@ export default Ember.Service.extend({
   credentials: storageFor('auth'),
   isAuthenticated: Ember.computed.bool('credentials.token'),
 
-  signUp (credentials) {
+  signUp(credentials) {
     return this.get('ajax').post('/sign-up', {
       data: {
         credentials: {
@@ -19,7 +19,7 @@ export default Ember.Service.extend({
     });
   },
 
-  signIn (credentials) {
+  signIn(credentials) {
     return this.get('ajax').post('/sign-in', {
       data: {
         credentials: {
@@ -36,7 +36,7 @@ export default Ember.Service.extend({
     });
   },
 
-  changePassword (passwords) {
+  changePassword(passwords) {
     return this.get('ajax').patch(`/change-password/${this.get('credentials.id')}`, {
       data: {
         passwords: {
@@ -47,7 +47,7 @@ export default Ember.Service.extend({
     });
   },
 
-  signOut () {
+  signOut() {
     return this.get('ajax').del(`/sign-out/${this.get('credentials.id')}`)
     .finally(() => this.get('credentials').reset());
   },

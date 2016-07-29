@@ -1,6 +1,8 @@
 <navbar>
   <div>
+      <button>{{#link-to 'posts'}}Home{{/link-to}}</button>
     {{#if auth.isAuthenticated}}
+      <button>{{#link-to 'new-post'}}Submit Post{{/link-to}}</button>
       <button {{action 'routeSignOut'}}>LogOut</button>
     {{else}}
       <button {{action 'open'}}>Register/LogIn</button>
