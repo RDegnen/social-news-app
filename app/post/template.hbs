@@ -6,3 +6,9 @@
   post=model
   delete='destroyPost'
   update='updatePost'}}
+<hr/>
+{{new-comment-form
+  newComment='createComment'}}
+{{#each model.comment as |comment|}}
+  {{comment-list comment=comment}}
+{{/each}}

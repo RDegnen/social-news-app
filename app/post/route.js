@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  ajax: Ember.inject.service(),
 
   model(params) {
     return this.store.findRecord('post', params.post_id);
@@ -13,9 +12,15 @@ export default Ember.Route.extend({
         .then(() => this.transitionTo('posts'))
         .catch(console.log);
     },
-
     updatePost(post) {
       post.save();
+    },
+
+    createComment(comment) {
+      let newComment = this.store.createRecord('comment', comment);
+      newComment.pidentifier = this.controller.get('model').id;
+      newComment.save()
+        .then(() => console.log('Comment Created'));
     },
   },
 });

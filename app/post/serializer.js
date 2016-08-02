@@ -64,7 +64,6 @@ export default JSONAPISerializer.extend({
 
     attrs.title = payload.data.title;
     attrs.content = payload.data.content;
-    // attrs.owner = payload.data.user_id;
     attrs.created = payload.data.created_at;
     attrs.updated = payload.data.updated_at;
 
