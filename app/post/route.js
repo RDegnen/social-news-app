@@ -23,5 +23,9 @@ export default Ember.Route.extend({
       newComment.save()
         .then(() => console.log('Comment Created'));
     },
+    destroyComment(comment) {
+      comment.destroyRecord()
+        .then(() => console.log('Comment deleted'));
+    }
   },
 });

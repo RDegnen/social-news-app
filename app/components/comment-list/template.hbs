@@ -1,3 +1,7 @@
 {{#each post.comments as |comment|}}
+  <h6>{{comment.user.username}} {{comment.timeSinceCreated}} ago</h6>
   <p>{{markdown-to-html comment.content}}</p>
+  {{#if (eq comment.user.id userId)}}
+    <button {{action 'delete' comment}}>Remove</button>
+  {{/if}}
 {{/each}}

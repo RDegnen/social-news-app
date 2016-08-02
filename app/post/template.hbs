@@ -9,4 +9,5 @@
 <hr/>
 {{new-comment-form
   newComment='createComment'}}
-{{comment-list post=model}}
+{{comment-list post=model
+  delete='destroyComment'}}
