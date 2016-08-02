@@ -9,6 +9,4 @@
 <hr/>
 {{new-comment-form
   newComment='createComment'}}
-{{#each model.comment as |comment|}}
-  {{comment-list comment=comment}}
-{{/each}}
+{{comment-list post=model}}

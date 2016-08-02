@@ -76,7 +76,7 @@ export default JSONAPISerializer.extend({
     delete payload.data.created_at;
     delete payload.data.updated_at;
     delete payload.post;
-
+    
     return payload;
   }
 });

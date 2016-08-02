@@ -1,1 +1,3 @@
-<p>{{markdown-to-html comment.content}}</p>
+{{#each post.comments as |comment|}}
+  <p>{{markdown-to-html comment.content}}</p>
+{{/each}}

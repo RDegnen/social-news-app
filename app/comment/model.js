@@ -8,7 +8,7 @@ export default Model.extend({
   post: belongsTo('post'),
 
   parent: belongsTo('comment', {inverse: 'children'}),
-  children: hasMany('comments', {inverse: 'parent'}),
+  children: hasMany('comment', {inverse: 'parent'}),
 
   content: DS.attr('string'),
   pidentifier: DS.attr('number'),
