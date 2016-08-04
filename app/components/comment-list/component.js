@@ -4,7 +4,8 @@ export default Ember.Component.extend({
   auth: Ember.inject.service(),
 
   userId: Ember.computed(function() {
-    return this.get('auth').get('credentials').content.id.toString();
+    return this.get('auth').get('credentials').content.id === undefined ? null :
+      this.get('auth').get('credentials').content.id.toString();
   }),
 
   actions: {
