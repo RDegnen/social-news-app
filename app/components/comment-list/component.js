@@ -10,6 +10,16 @@ export default Ember.Component.extend({
   actions: {
     delete(comment) {
       this.sendAction('delete', comment);
-    }
+    },
+    update(comment) {
+      this.sendAction('update', comment);
+      this.set('isEditing', false);
+    },
+    openEdit() {
+      this.set('isEditing', true);
+    },
+    closeEdit() {
+      this.set('isEditing', false);
+    },
   },
 });

@@ -23,6 +23,10 @@ export default Ember.Route.extend({
       newComment.save()
         .then(() => console.log('Comment Created'));
     },
+    updateComment(comment) {
+      comment.pidentifier = this.controller.get('model').id;
+      comment.save();
+    },
     destroyComment(comment) {
       comment.destroyRecord()
         .then(() => console.log('Comment deleted'));
