@@ -12,7 +12,8 @@ export default Model.extend({
   children: hasMany('comment', {inverse: 'parent'}),
 
   content: DS.attr('string'),
-  pidentifier: DS.attr('number'),
+  postidentifier: DS.attr('number'),
+  parentidentifier: DS.attr('number'),
   created: DS.attr('date'),
 
   timeSinceCreated: Ember.computed('created', function(){

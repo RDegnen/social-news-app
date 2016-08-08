@@ -8,8 +8,10 @@ export default Ember.Component.extend({
   },
 
   actions: {
-    newComment() {
-      this.sendAction('newComment', this.get('comment'));
+    newComment(id) {
+      let comment = this.get('comment');
+      comment.parent = id;
+      this.sendAction('newComment', comment);
     },
   }
 });

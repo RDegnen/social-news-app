@@ -9,6 +9,9 @@ export default Ember.Component.extend({
   }),
 
   actions: {
+    newComment(comment) {
+      this.sendAction('newComment', comment);
+    },
     delete(comment) {
       this.sendAction('delete', comment);
     },
@@ -21,6 +24,9 @@ export default Ember.Component.extend({
     },
     closeEdit() {
       this.set('isEditing', false);
+    },
+    openReply() {
+      this.set('replying', true);
     },
   },
 });

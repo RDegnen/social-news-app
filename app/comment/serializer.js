@@ -3,10 +3,11 @@ import JSONAPISerializer from 'ember-data/serializers/json-api';
 export default JSONAPISerializer.extend({
   serialize() {
     let json = this._super(...arguments);
-
+    
     return {
       content: json.data.attributes.content,
-      post_id: json.data.attributes.pidentifier,
+      post_id: json.data.attributes.postidentifier,
+      comment_id: json.data.attributes.parentidentifier,
     };
   },
 
@@ -23,10 +24,13 @@ export default JSONAPISerializer.extend({
 
       rels.user = {};
       rels.post = {};
+      rels.parent = {};
       rels.user.data = {};
       rels.post.data = {};
+      rels.parent.data = {};
       let userData = rels.user.data;
       let postData = rels.post.data;
+      let parentData = rels.parent.data;
 
       payload.data[i].type = type.modelName;
 
@@ -38,10 +42,13 @@ export default JSONAPISerializer.extend({
       userData.type = "user";
       postData.id = payload.data[i].post_id;
       postData.type = "post";
+      parentData.id = payload.data[i].comment_id;
+      parentData.type = "comment";
 
       delete payload.data[i].content;
       delete payload.data[i].user_id;
       delete payload.data[i].post_id;
+      delete payload.data[i].comment_id;
       delete payload.data[i].created_at;
       delete payload.data[i].updated_at;
     }
@@ -63,10 +70,13 @@ export default JSONAPISerializer.extend({
 
     rels.user = {};
     rels.post = {};
+    rels.parent = {};
     rels.user.data = {};
     rels.post.data = {};
+    rels.parent.data = {};
     let userData = rels.user.data;
     let postData = rels.post.data;
+    let parentData = rels.parent.data;
 
     payload.data.type = type.modelName;
 
@@ -78,10 +88,13 @@ export default JSONAPISerializer.extend({
     userData.type = "user";
     postData.id = payload.data.post_id;
     postData.type = "post";
+    parentData.id = payload.data.comment_id;
+    parentData.type = "comment";
 
     delete payload.data.content;
     delete payload.data.user_id;
     delete payload.data.post_id;
+    delete payload.data.comment_id;
     delete payload.data.created_at;
     delete payload.data.updated_at;
     delete payload.comment;

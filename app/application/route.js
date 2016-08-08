@@ -32,7 +32,6 @@ export default Ember.Route.extend({
         console.log(error);
         console.log('There was a problem. Are you sure you\'re signed-in?');
       });
-      this.store.unloadAll();
     },
   },
 });

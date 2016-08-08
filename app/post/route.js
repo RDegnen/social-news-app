@@ -19,7 +19,8 @@ export default Ember.Route.extend({
 
     createComment(comment) {
       let newComment = this.store.createRecord('comment', comment);
-      newComment.pidentifier = this.controller.get('model').id;
+      newComment.postidentifier = this.controller.get('model').id;
+      newComment.parentidentifier = comment.parent;
       newComment.save()
         .then(() => console.log('Comment Created'));
     },

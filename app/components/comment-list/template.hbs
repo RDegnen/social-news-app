@@ -6,6 +6,9 @@
       <button {{action 'delete' comment}}>Remove</button>
       <button {{action 'openEdit'}}>Edit</button>
     {{/if}}
+    {{#if auth.isAuthenticated}}
+      <button {{action 'openReply'}}>Reply</button>
+    {{/if}}
   {{/unless}}
 
   {{#if isEditing}}
@@ -15,4 +18,12 @@
       <button {{action 'update' comment}}>Save</button>
       <button {{action 'closeEdit'}}>Cancel</button>
   {{/if}}
+
+  {{#if replying}}
+    {{new-comment-form parent=comment newComment='newComment'}}
+  {{/if}}
+
+  {{#each comment.children as |child|}}
+    <p>{{markdown-to-html child.content}}</p>
+  {{/each}}
 {{/each}}
