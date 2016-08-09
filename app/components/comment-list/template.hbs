@@ -1,29 +1,7 @@
 {{#each post.comments as |comment|}}
-  <h6>{{comment.user.username}} {{comment.timeSinceCreated}} ago</h6>
-  {{#unless isEditing}}
-    <p>{{markdown-to-html comment.content}}</p>
-    {{#if (eq comment.user.id userId)}}
-      <button {{action 'delete' comment}}>Remove</button>
-      <button {{action 'openEdit'}}>Edit</button>
-    {{/if}}
-    {{#if auth.isAuthenticated}}
-      <button {{action 'openReply'}}>Reply</button>
-    {{/if}}
-  {{/unless}}
-
-  {{#if isEditing}}
-    {{textarea
-      type=text
-      value=comment.content}}
-      <button {{action 'update' comment}}>Save</button>
-      <button {{action 'closeEdit'}}>Cancel</button>
-  {{/if}}
-
-  {{#if replying}}
-    {{new-comment-form parent=comment newComment='newComment'}}
-  {{/if}}
-
-  {{#each comment.children as |child|}}
-    <p>{{markdown-to-html child.content}}</p>
-  {{/each}}
+  {{comment-node
+    comment=comment
+    newComment='newComment'
+    update='update'
+    delete='delete'}}
 {{/each}}
