@@ -3,7 +3,7 @@ import JSONAPISerializer from 'ember-data/serializers/json-api';
 export default JSONAPISerializer.extend({
   serialize() {
     let json = this._super(...arguments);
-    
+
     return {
       content: json.data.attributes.content,
       post_id: json.data.attributes.postidentifier,
@@ -37,6 +37,8 @@ export default JSONAPISerializer.extend({
       attrs.content = payload.data[i].content;
       attrs.created = payload.data[i].created_at;
       attrs.updated = payload.data[i].updated_at;
+      attrs.postidentifier = payload.data[i].post_id;
+      attrs.parentidentifier = payload.data[i].comment_id;
 
       userData.id = payload.data[i].user_id;
       userData.type = "user";
@@ -52,7 +54,7 @@ export default JSONAPISerializer.extend({
       delete payload.data[i].created_at;
       delete payload.data[i].updated_at;
     }
-
+    
     return payload;
   },
 
@@ -83,6 +85,8 @@ export default JSONAPISerializer.extend({
     attrs.content = payload.data.content;
     attrs.created = payload.data.created_at;
     attrs.updated = payload.data.updated_at;
+    attrs.postidentifier = payload.data.post_id;
+    attrs.parentidentifier = payload.data.comment_id;
 
     userData.id = payload.data.user_id;
     userData.type = "user";

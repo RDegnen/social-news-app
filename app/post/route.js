@@ -30,7 +30,6 @@ export default Ember.Route.extend({
         .then(() => console.log('Comment Created'));
     },
     updateComment(comment) {
-      comment.pidentifier = this.controller.get('model').id;
       comment.save();
     },
     destroyComment(comment) {
