@@ -1,0 +1,8 @@
+{{#each post.comments as |comment|}}
+  {{comment-node
+    comment=comment
+    newComment='newComment'
+    newChild='newChild'
+    update='update'
+    delete='delete'}}
+{{/each}}

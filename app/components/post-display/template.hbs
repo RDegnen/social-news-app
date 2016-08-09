@@ -8,10 +8,11 @@
     <button {{action 'delete'}}>Delete</button>
   {{/if}}
 {{/unless}}
+
 {{#if isEditing}}
-{{textarea
-  type=text
-  value=content}}
-  <button {{action 'update'}}>Save</button>
-  <button {{action 'closeEdit'}}>Cancel</button>
+  {{textarea
+    type=text
+    value=content}}
+    <button {{action 'update'}}>Save</button>
+    <button {{action 'closeEdit'}}>Cancel</button>
 {{/if}}

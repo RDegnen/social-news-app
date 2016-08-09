@@ -6,7 +6,7 @@ import { belongsTo, hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   user: belongsTo('user'),
-  comments: hasMany('comments'),
+  comments: hasMany('comment', { async: true }),
 
   title: DS.attr('string'),
   content: DS.attr('string'),

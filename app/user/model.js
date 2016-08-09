@@ -4,8 +4,8 @@ import DS from 'ember-data';
 import { hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
-  posts: hasMany('posts'),
-  comments: hasMany('comments'),
+  posts: hasMany('post'),
+  comments: hasMany('comment'),
 
   username: DS.attr('string'),
   email: DS.attr('string'),
