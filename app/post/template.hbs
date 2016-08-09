@@ -7,9 +7,10 @@
   delete='destroyPost'
   update='updatePost'}}
 <hr/>
-{{new-comment-form
+{{top-comment-form
   newComment='createComment'}}
 {{comment-list post=model
   update='updateComment'
   delete='destroyComment'
-  newComment='createComment'}}
+  newComment='createComment'
+  newChild='createChildComment'}}

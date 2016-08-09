@@ -6,6 +6,9 @@ export default Ember.Component.extend({
     newComment(comment) {
       this.sendAction('newComment', comment);
     },
+    newChild(comment) {
+      this.sendAction('newChild', comment);
+    },
     delete(comment) {
       this.sendAction('delete', comment);
     },
