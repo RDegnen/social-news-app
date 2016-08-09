@@ -12,6 +12,11 @@ export default Ember.Component.extend({
       let comment = this.get('comment');
       comment.parent = id;
       this.sendAction('newChild', comment);
+      this.sendAction('closeReply');
+    },
+
+    closeReply() {
+      this.sendAction('closeReply');
     },
   }
 });

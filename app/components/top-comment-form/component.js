@@ -10,8 +10,8 @@ export default Ember.Component.extend({
   actions: {
     newComment() {
       let comment = this.get('comment');
-      console.log(comment);
       this.sendAction('newComment', comment);
+      this.set('comment.content', "");
     },
   }
 });

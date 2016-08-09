@@ -19,14 +19,19 @@ export default Ember.Component.extend({
       this.sendAction('update', comment);
       this.set('isEditing', false);
     },
+
     openEdit() {
       this.set('isEditing', true);
     },
     closeEdit() {
       this.set('isEditing', false);
     },
+
     openReply() {
       this.set('replying', true);
+    },
+    closeReply() {
+      this.set('replying', false);
     },
   },
 });

@@ -19,7 +19,10 @@
 {{/if}}
 
 {{#if replying}}
-  {{new-comment-form parent=comment newChild='newChild'}}
+  {{new-comment-form
+    parent=comment
+    newChild='newChild'
+    closeReply='closeReply'}}
 {{/if}}
 
 {{#each comment.children as |child|}}
