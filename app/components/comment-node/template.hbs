@@ -2,7 +2,7 @@
 {{#unless isEditing}}
   <p>{{markdown-to-html comment.content}}</p>
   {{#if auth.isAuthenticated}}
-    {{#if (eq comment.user.id userId)}}
+    {{#if (eq comment.user.id auth.userId)}}
       <button {{action 'delete' comment}}>Remove</button>
       <button {{action 'openEdit'}}>Edit</button>
     {{/if}}
