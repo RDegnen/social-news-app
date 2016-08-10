@@ -3,9 +3,11 @@
   <p>
     {{markdown-to-html content}}
   </p>
-  {{#if isOwner}}
-    <button {{action 'openEdit'}}>Edit</button>
-    <button {{action 'delete'}}>Delete</button>
+  {{#if auth.isAuthenticated}}
+    {{#if (eq owner.id auth.userId)}}
+      <button {{action 'openEdit'}}>Edit</button>
+      <button {{action 'delete'}}>Delete</button>
+    {{/if}}
   {{/if}}
 {{/unless}}
 

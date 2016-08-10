@@ -9,6 +9,7 @@ export default Ember.Component.extend({
     routeSignUp() {
       this.sendAction('routeSignUp', this.get('registerCredentials'));
       this.set('isShowingModal', false);
+      this.set('registerCredentials', {});
     },
     routeSignIn() {
       this.sendAction('routeSignIn', this.get('credentials'));

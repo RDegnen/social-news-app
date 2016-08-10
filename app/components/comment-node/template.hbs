@@ -1,12 +1,12 @@
 <h6>{{comment.user.username}} {{comment.timeSinceCreated}} ago</h6>
 {{#unless isEditing}}
   <p>{{markdown-to-html comment.content}}</p>
-  {{#if (eq comment.user.id userId)}}
-    <button {{action 'delete' comment}}>Remove</button>
-    <button {{action 'openEdit'}}>Edit</button>
-  {{/if}}
   {{#if auth.isAuthenticated}}
-    <button {{action 'openReply'}}>Reply</button>
+    {{#if (eq comment.user.id auth.userId)}}
+      <button {{action 'delete' comment}}>Remove</button>
+      <button {{action 'openEdit'}}>Edit</button>
+    {{/if}}
+      <button {{action 'openReply'}}>Reply</button>
   {{/if}}
 {{/unless}}
 

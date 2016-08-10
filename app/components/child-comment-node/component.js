@@ -4,11 +4,6 @@ export default Ember.Component.extend({
   classNames: ['comment-node'],
   auth: Ember.inject.service(),
 
-  userId: Ember.computed(function() {
-    return this.get('auth').get('credentials').content.id === undefined ? null :
-      this.get('auth').get('credentials').content.id.toString();
-  }),
-
   actions: {
     newChild(comment) {
       this.sendAction('newChild', comment);
