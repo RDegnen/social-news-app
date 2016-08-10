@@ -2,6 +2,7 @@ import Ember from 'ember';
 import { storageFor } from 'ember-local-storage';
 
 export default Ember.Component.extend({
+  auth: Ember.inject.service(),
   credentials: storageFor('auth'),
 
   isOwner: Ember.computed(function() {
