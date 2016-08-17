@@ -12,21 +12,33 @@
 
 {{#if isShowingModal}}
   {{#modal-dialog close="close" clickOutsideToClose=true}}
-    <div class="auth-modal">
-      <h3>LogIn</h3>
-      <form>
-        {{username-input username=credentials.username}}
-        {{password-input password=credentials.password}}
-        <button type="submit" {{action 'routeSignIn'}}>LogIn</button>
-      </form>
-      <h3>Register</h3>
-      <form>
-        {{username-input username=registerCredentials.username}}
-        {{email-input email=registerCredentials.email}}
-        {{password-input password=registerCredentials.password}}
-        {{password-input-confirmation password=registerCredentials.passwordConfirmation}}
-        <button type="submit" {{action 'routeSignUp'}}>Register</button>
-      </form>
+  <div class="modal-background"></div>
+  <div class="modal-display">
+    <div class="modal-dialog">
+      <div class="auth-modal-header">
+        <button class="btn-close" {{action 'close'}}>X</button>
+      </div>
+      <div class="auth-modal-content">
+        <div class="modal-split-section">
+          <h3>LogIn</h3>
+          <form>
+            {{username-input username=credentials.username}}
+            {{password-input password=credentials.password}}
+            <button class="btn" type="submit" {{action 'routeSignIn'}}>LogIn</button>
+          </form>
+        </div>
+        <div class="modal-split-section">
+          <h3>Register</h3>
+          <form>
+            {{username-input username=registerCredentials.username}}
+            {{email-input email=registerCredentials.email}}
+            {{password-input password=registerCredentials.password}}
+            {{password-input-confirmation password=registerCredentials.passwordConfirmation}}
+            <button class="btn" type="submit" {{action 'routeSignUp'}}>Register</button>
+          </form>
+      </div>
+      </div>
     </div>
+  </div>
   {{/modal-dialog}}
 {{/if}}

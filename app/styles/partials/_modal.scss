@@ -1,0 +1,71 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  z-index: 1000;
+  opacity: 0.5;
+}
+
+.modal-display {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  overflow-y: auto;
+}
+
+.auth-modal-header {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1050;
+
+  .btn-close {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+  }
+}
+
+.auth-modal-content {
+  position: relative;
+  background-color: white;
+  padding: 60px;
+  display: block;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  border-radius: 5px;
+
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+
+  .modal-split-section {
+    float: left;
+    width: 50%;
+
+    .form-control-c {
+      input {
+        padding: 6px 12px;
+        font-size: 14px;
+        border: 1px solid grey;
+        border-radius: 5px;
+        width: 100%;
+      }
+    }
+  }
+
+  .modal-split-section:first-child {
+    padding-right: 60px;
+  }
+  .modal-split-section:last-child {
+    padding-left: 60px;
+    border-left: 1px solid grey;
+  }
+}

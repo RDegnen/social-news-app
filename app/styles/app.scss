@@ -1,20 +1,5 @@
 @import 'bootstrap';
 @import 'bootstrap/theme';
-
-.auth-modal {
-  overflow: hidden;
-  position: fixed;
-  top: 25%;
-  left: 25%;
-  z-index: 1050;
-  -webkit-overflow-scrolling: touch;
-  outline: 0;
-  height: 400px;
-  background-color: grey;
-}
-
-.comment-node {
-  border: 1px solid lightgrey;
-  padding: 10px;
-  margin: 5px;
-}
+@import 'partials/navbar';
+@import 'partials/modal';
+@import 'partials/comments';
