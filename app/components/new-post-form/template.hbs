@@ -1,13 +1,23 @@
-<div id="mde">
+<div class="submit-split-section" id="mde">
   <h4>Title</h4>
-  {{input value=post.title}}
+  {{textarea
+    class="post-title"
+    type=text
+    value=post.title}}
   <h4>Content</h4>
   {{textarea
+    class="post-content"
     type=text
     value=post.content}}
+  <p>
+    This site uses <a href="https://github.com/gcollazo/ember-cli-showdown">ember-cli-showdown</a>
+    so Markdown can be used to format posts!
+    <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Here</a>
+    is how to use Markdown.
+  </p>
 </div>
-<div>
+<div class="submit-split-section">
   <h4>Post Preview</h4>
   {{markdown-to-html post.content}}
-  <button type="submit" {{action 'newPost'}}>Submit</button>
+  <button class="btn" type="submit" {{action 'newPost'}}>Submit</button>
 </div>
