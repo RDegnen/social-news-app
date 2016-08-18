@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['comment-node'],
+  classNames: ['padding-wrapper'],
   auth: Ember.inject.service(),
 
   actions: {

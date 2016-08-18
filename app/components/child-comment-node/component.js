@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['comment-node'],
+  classNames: ['child-comment-node'],
   auth: Ember.inject.service(),
 
   actions: {

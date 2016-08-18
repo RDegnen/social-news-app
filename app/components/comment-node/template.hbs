@@ -3,19 +3,24 @@
   <p>{{markdown-to-html comment.content}}</p>
   {{#if auth.isAuthenticated}}
     {{#if (eq comment.user.id auth.userId)}}
-      <button {{action 'delete' comment}}>Remove</button>
-      <button {{action 'openEdit'}}>Edit</button>
+      <button class="btn-posts" {{action 'delete' comment}}>Remove</button>
+      <button class="btn-posts" {{action 'openEdit'}}>Edit</button>
     {{/if}}
-      <button {{action 'openReply'}}>Reply</button>
+    {{#unless replying}}
+      <button class="btn-posts" {{action 'openReply'}}>Reply</button>
+    {{/unless}}
   {{/if}}
 {{/unless}}
 
 {{#if isEditing}}
   {{textarea
+    class="comment-textarea"
     type=text
     value=comment.content}}
-    <button {{action 'update' comment}}>Save</button>
-    <button {{action 'closeEdit'}}>Cancel</button>
+  <div>
+    <button class="btn-posts" {{action 'update' comment}}>Save</button>
+    <button class="btn-posts" {{action 'closeEdit'}}>Cancel</button>
+  </div>
 {{/if}}
 
 {{#if replying}}

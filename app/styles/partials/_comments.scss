@@ -1,5 +1,26 @@
-.comment-node {
-  border: 1px solid lightgrey;
-  padding: 10px;
-  margin: 5px;
+.child-comment-node {
+  border-left: 1px solid lightgrey;
+  padding-left: 30px;
+
+  h6 {
+    margin: 0;
+    padding: 10px 0;
+  }
+  p {
+    margin: 0;
+    padding-bottom: 5px;
+  }
+}
+
+.comment-textarea {
+  height: 100px;
+  @media (min-width: 750px) {
+    width: 50%;
+  }
+  @media (max-width: 749px) and (min-width: 530px) {
+    width: 75%;
+  }
+  @media (max-width: 529px) {
+    width: 100%;
+  }
 }

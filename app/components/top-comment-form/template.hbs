@@ -1,6 +1,9 @@
 {{#if auth.isAuthenticated}}
   {{textarea
+    class="comment-textarea"
     type=text
     value=comment.content}}
-  <button {{action 'newComment'}}>Save</button>
+  <div>
+    <button class="btn-posts" {{action 'newComment'}}>Save</button>
+  </div>
 {{/if}}

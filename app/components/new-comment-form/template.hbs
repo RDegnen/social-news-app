@@ -1,7 +1,10 @@
 {{#if auth.isAuthenticated}}
   {{textarea
+    class="comment-textarea"
     type=text
     value=comment.content}}
-  <button {{action 'newChild' parent.id}}>Save</button>
-  <button {{action 'closeReply'}}>Cancel</button>
+  <div>
+    <button class="btn-posts" {{action 'newChild' parent.id}}>Save</button>
+    <button class="btn-posts" {{action 'closeReply'}}>Cancel</button>
+  </div>
 {{/if}}
