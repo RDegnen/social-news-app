@@ -5,16 +5,19 @@
   </p>
   {{#if auth.isAuthenticated}}
     {{#if (eq owner.id auth.userId)}}
-      <button {{action 'openEdit'}}>Edit</button>
-      <button {{action 'delete'}}>Delete</button>
+      <button class="btn-posts" {{action 'openEdit'}}>Edit</button>
+      <button class="btn-posts" {{action 'delete'}}>Delete</button>
     {{/if}}
   {{/if}}
 {{/unless}}
 
 {{#if isEditing}}
   {{textarea
+    class="post-edit-textarea"
     type=text
     value=content}}
-    <button {{action 'update'}}>Save</button>
-    <button {{action 'closeEdit'}}>Cancel</button>
+    <div>
+      <button class="btn-posts" {{action 'update'}}>Save</button>
+      <button class="btn-posts" {{action 'closeEdit'}}>Cancel</button>
+    </div>
 {{/if}}
