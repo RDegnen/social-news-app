@@ -1,11 +1,14 @@
 <navbar>
-  <div>
-      <button>{{#link-to 'posts'}}Home{{/link-to}}</button>
+  <div class="nav-content">
+    <div class="nav-header">
+      <h4>Social News</h4>
+    </div>
+    <button class="btn btn-nav">{{#link-to 'posts'}}Home{{/link-to}}</button>|
     {{#if auth.isAuthenticated}}
-      <button>{{#link-to 'new-post'}}Submit Post{{/link-to}}</button>
-      <button {{action 'routeSignOut'}}>LogOut</button>
+      <button class="btn btn-nav">{{#link-to 'new-post'}}Submit Post{{/link-to}}</button>|
+      <button class="btn btn-nav" {{action 'routeSignOut'}}>LogOut</button>
     {{else}}
-      <button {{action 'open'}}>Register/LogIn</button>
+      <button class="btn btn-nav" {{action 'open'}}>Register/LogIn</button>
     {{/if}}
   </div>
 </navbar>
