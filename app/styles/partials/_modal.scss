@@ -59,13 +59,22 @@
         width: 100%;
       }
     }
+
+    @media (max-width: 625px) {
+      float: none;
+      width: 100%;
+    }
   }
 
   .modal-split-section:first-child {
-    padding-right: 60px;
+    @media (min-width: 625px) {
+      padding-right: 60px;
+    }
   }
   .modal-split-section:last-child {
-    padding-left: 60px;
-    border-left: 1px solid grey;
+    @media (min-width: 625px) {
+      padding-left: 60px;
+      border-left: 1px solid grey;
+    }
   }
 }
